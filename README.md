@@ -1,3 +1,15 @@
+Бот для отправки уведомлений в чат Telegram о создание новой заявки на сайте osTicket
+
+**Необходимые данные:**
+
+OSTicketApiUrl - URL-адрес сайта osTicket 
+
+OsticketApiKey - API ключ сайта osTicket
+
+TelegramBotToken - токен вашего Telegram бота (создать бота и получить его токен можно через бота @BotFather)
+
+TelegramChatId - id чата Telegram в который бот будет отправлять уведомления (id чата можно посмотреть через бота @username_to_id_bot)
+
 **Настройка рабочей среды:**
 
 Установка Visual Studio Code через терминал:
@@ -33,4 +45,28 @@
     dotnet add package Newtonsoft.Json
     dotnet add package System.Net.Http
 
+*Newtonsoft.Json - библиотека для обработки JSON-данных
+
+*System.Net.Http - набор классов для выполнения HTTP-запросов
+
 **Запуск бота:**
+
+Сборка и запуск:
+
+    dotnet build
+    dotnet run
+
+Автозапуск бота:
+
+    [Unit]
+    Description=Ticket Bot Service
+    After=network.target
+
+    [Service]
+    WorkingDirectory=/path/to/your/project
+    ExecStart=/usr/bin/dotnet /path/to/your/project/Ticket_BotTG.dll
+    Restart=always
+    RestartSec=10
+    SyslogIdentifier=ticket-bot
+    User=your-user
+    Environment=ASPNETCORE_ENVIRONMENT=Production
