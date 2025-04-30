@@ -70,3 +70,7 @@ TelegramChatId - id чата Telegram в который бот будет отп
     SyslogIdentifier=ticket-bot
     User=your-user
     Environment=ASPNETCORE_ENVIRONMENT=Production
+
+*WorkingDirectory - указание на рабочую директорию, где находится проект
+
+*ExecStart - команда для запуска приложения через dotnet-рантайм с указанием пути к dll-файлу бота
