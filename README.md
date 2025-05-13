@@ -55,22 +55,3 @@ TelegramChatId - id чата Telegram в который бот будет отп
 
     dotnet build
     dotnet run
-
-Автозапуск бота:
-
-    [Unit]
-    Description=Ticket Bot Service
-    After=network.target
-
-    [Service]
-    WorkingDirectory=/path/to/your/project
-    ExecStart=/usr/bin/dotnet /path/to/your/project/Ticket_BotTG.dll
-    Restart=always
-    RestartSec=10
-    SyslogIdentifier=ticket-bot
-    User=your-user
-    Environment=ASPNETCORE_ENVIRONMENT=Production
-
-*WorkingDirectory - указание на рабочую директорию, где находится проект
-
-*ExecStart - команда для запуска приложения через dotnet-рантайм с указанием пути к dll-файлу бота
